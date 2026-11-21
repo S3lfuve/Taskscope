@@ -4,18 +4,14 @@
 ![ColorOS](https://img.shields.io/badge/ColorOS-15%20%7C%2016%20%7C%2017-38506b)
 ![Root](https://img.shields.io/badge/Root-required-8a5a16)
 
-<table>
-  <tr>
-    <th>ЦП и память</th>
-    <th>GPU и ядра ЦП</th>
-    <th>Температуры и частоты</th>
-  </tr>
-  <tr>
-    <td valign="top"><img src="docs/screenshots/performance.png" alt="Графики ЦП и оперативной памяти за 60 замеров" width="265"></td>
-    <td valign="top"><img src="docs/screenshots/gpu-and-cores.png" alt="График GPU и нагрузка отдельных ядер ЦП" width="265"></td>
-    <td valign="top"><img src="docs/screenshots/temperatures.png" alt="Шесть термодатчиков, термостатус Android и текущие частоты" width="265"></td>
-  </tr>
-</table>
+<p align="center">
+  <a href="docs/screenshots/processes.png"><img src="docs/screenshots/processes.png" alt="Таблица процессов" width="15%"></a>
+  <a href="docs/screenshots/cpu-load.png"><img src="docs/screenshots/cpu-load.png" alt="График загрузки ЦП" width="15%"></a>
+  <a href="docs/screenshots/gpu-load.png"><img src="docs/screenshots/gpu-load.png" alt="График загрузки GPU" width="15%"></a>
+  <a href="docs/screenshots/services.png"><img src="docs/screenshots/services.png" alt="Список служб Android" width="15%"></a>
+  <a href="docs/screenshots/temperatures.png"><img src="docs/screenshots/temperatures.png" alt="Мониторинг температур" width="15%"></a>
+  <a href="docs/screenshots/overlay.png"><img src="docs/screenshots/overlay.png" alt="Плавающий оверлей Taskscope" width="15%"></a>
+</p>
 
 [Скачать Taskscope 1.0](https://github.com/S3lfuve/Taskscope/releases/tag/v1.0)
 
@@ -36,23 +32,36 @@ Taskscope переносит идею Диспетчера задач Windows н
 
 В карточке процесса можно посмотреть его состояние и число потоков, приостановить, возобновить или завершить его. Для процесса приложения действие «Завершить» останавливает весь пакет.
 
+<img src="docs/screenshots/processes.png" alt="Поиск и сортировка процессов по нагрузке" width="560">
+
 ### Графики
 
 Здесь видна история загрузки ЦП, GPU и ОЗУ. Для каждого ядра ЦП есть свой график. Нажмите на график, чтобы узнать значение в выбранный момент. После сворачивания Taskscope может собирать данные ещё 1, 3, 5 или 10 минут, пока остаётся в списке недавних приложений.
+
+<p>
+  <img src="docs/screenshots/cpu-load.png" alt="Заполненный график загрузки ЦП за 60 замеров" width="48%">
+  <img src="docs/screenshots/gpu-load.png" alt="Заполненный график загрузки GPU за 60 замеров" width="48%">
+</p>
 
 ### Службы
 
 Здесь видны системные службы, которыми управляет Android `init`, и их текущее состояние. Список можно отсортировать по имени или состоянию. Из карточки службы её можно запустить, остановить или перезапустить.
 
+<img src="docs/screenshots/services.png" alt="Системные службы Android и их состояние" width="560">
+
 ### Нагрев
 
 В этом разделе можно проверить температуры ЦП, GPU и аккумулятора, а при наличии датчиков ещё корпуса, ОЗУ и модема. Текущие частоты и их лимиты помогают заметить, когда система ограничивает производительность. Рядом отображается термостатус Android и причина ограничения частоты ЦП, если её сообщает драйвер.
+
+<img src="docs/screenshots/temperatures.png" alt="Показания шести термодатчиков" width="560">
 
 ## Оверлей
 
 Кнопка «Оверлей» открывает плавающее окно поверх игры или другого приложения. Его можно перетащить и свернуть в компактную кнопку. По умолчанию видны FPS, загрузка и температура ЦП и GPU, а также объём занятой ОЗУ. В настройках можно выбрать показатели, изменить их порядок и задать интервал обновления от 250 до 2000 мс.
 
 FPS рассчитывается по времени вывода кадров приложения через Android SurfaceFlinger. Загрузка GPU считывается из счётчика драйвера, когда он доступен. Набор доступных показателей зависит от прошивки, драйвера и датчиков устройства. Если данных для показателя оверлея нет, он отображается как `н/д`.
+
+<img src="docs/screenshots/overlay.png" alt="Оверлей с показаниями ЦП, GPU, памяти и батареи" width="390">
 
 ## Установка
 
@@ -69,11 +78,3 @@ sh build.sh
 ```
 
 Скрипт скачает Android SDK Platform 35 при первой сборке и создаст подписанный `Taskscope.apk` и файл `release.json` с номером версии из APK. По умолчанию ключ хранится в `.build/local-signing.p12`. Путь к существующему ключу можно передать через `TASKSCOPE_KEYSTORE`. Скрипт запросит пароль или возьмёт его из переменной окружения `TASKSCOPE_KEYSTORE_PASSWORD`.
-
-## Обновления
-
-При открытии Taskscope проверяет `release.json` в ветке `release` публичного репозитория. После успешной проверки приложение ждёт шесть часов до следующей автоматической попытки. Проверку также можно запустить из настроек. Если доступна новая версия, кнопка «Обновиться» откроет [GitHub Releases](https://github.com/S3lfuve/Taskscope/releases), а «Позже» отложит это предложение на сутки.
-
-Пока репозиторий приватный, APK доступен участникам репозитория через GitHub Releases. Автопроверке потребуется публичный доступ к `release.json`.
-
-Для публикации повысите `versionCode` в манифесте, соберите APK с тем же ключом подписи, что и прошлую версию, и прикрепите его к GitHub Release. После этого добавьте сгенерированный `release.json` в корень ветки `release`.
