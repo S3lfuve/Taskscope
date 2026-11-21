@@ -5,12 +5,11 @@
 ![Root](https://img.shields.io/badge/Root-required-8a5a16)
 
 <p align="center">
-  <a href="docs/screenshots/processes.png"><img src="docs/screenshots/processes.png" alt="Таблица процессов" width="15%"></a>
-  <a href="docs/screenshots/cpu-load.png"><img src="docs/screenshots/cpu-load.png" alt="График загрузки ЦП" width="15%"></a>
-  <a href="docs/screenshots/gpu-load.png"><img src="docs/screenshots/gpu-load.png" alt="График загрузки GPU" width="15%"></a>
-  <a href="docs/screenshots/services.png"><img src="docs/screenshots/services.png" alt="Список служб Android" width="15%"></a>
-  <a href="docs/screenshots/temperatures.png"><img src="docs/screenshots/temperatures.png" alt="Мониторинг температур" width="15%"></a>
-  <a href="docs/screenshots/overlay.png"><img src="docs/screenshots/overlay.png" alt="Плавающий оверлей Taskscope" width="15%"></a>
+  <a href="docs/screenshots/dashboard-landscape.png"><img src="docs/screenshots/dashboard-landscape.png" alt="Taskscope в горизонтальном режиме с таблицей процессов и сводкой нагрузки" width="100%"></a>
+</p>
+
+<p align="center">
+  <a href="docs/screenshots/dashboard-portrait.png"><img src="docs/screenshots/dashboard-portrait.png" alt="Taskscope в вертикальном режиме с графиками ЦП и оперативной памяти" width="420"></a>
 </p>
 
 [Скачать Taskscope 1.0](https://github.com/S3lfuve/Taskscope/releases/tag/v1.0)
