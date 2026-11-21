@@ -5,8 +5,8 @@
 ![Root](https://img.shields.io/badge/Root-required-8a5a16)
 
 <p align="center">
-  <a href="docs/screenshots/dashboard-landscape.png"><img src="docs/screenshots/dashboard-landscape.png" alt="Taskscope в горизонтальном режиме с таблицей процессов и сводкой нагрузки" width="77%"></a>
   <a href="docs/screenshots/dashboard-portrait.png"><img src="docs/screenshots/dashboard-portrait.png" alt="Taskscope в вертикальном режиме с графиками ЦП и оперативной памяти" width="21%"></a>
+  <a href="docs/screenshots/dashboard-landscape.png"><img src="docs/screenshots/dashboard-landscape.png" alt="Taskscope в горизонтальном режиме с таблицей процессов и сводкой нагрузки" width="77%"></a>
 </p>
 
 [Скачать Taskscope 1.0](https://github.com/S3lfuve/Taskscope/releases/tag/v1.0)
